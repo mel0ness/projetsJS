@@ -1,0 +1,180 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+
+.nav {
+    background-color: variables.$color1;
+margin-top: 10px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+
+@media (min-width: 1000px) {
+    flex-direction: row;
+   justify-content: end;
+   gap: 30px;
+   margin-top: 25px;
+   padding: 0;
+   padding-right: 20px;
+
+}
+
+}
+
+
+
+a.header {
+    display: block;
+    font-size: 1.5rem;
+    width: 100%;
+    margin: auto;
+    background-color: variables.$color1;
+    text-decoration: none;
+    color: variables.$color2;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    &:hover {
+        background-color: variables.$color2;
+        color: variables.$color1;
+    }
+
+    @media(min-width: 1000px) {
+        width: 30%;
+        padding: 0;
+        display: inline;
+    }
+}
+
+a.ongletActif {
+    background-color: variables.$color2;
+    color: variables.$color1;
+    
+
+    @media (min-width: 1000px){
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px variables.$color2;
+    background-color: variables.$color1;
+    color: variables.$color2;
+}
+}
+
+
+
+
+.invisible {
+    width: 0;
+    height: 0;
+    
+    & .onglet {
+        opacity: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+
+        @media (min-width: 1000px) {
+           opacity: 1;
+           position: relative;
+           width: auto;
+           height: auto;
+        }
+
+    }
+
+    @media (min-width: 1000px) {
+        width: auto;
+        height: auto;
+    }
+    
+}
+.visible {
+    width: auto;
+    height: auto;
+    transition: 1.3s;
+
+    & .onglet {
+        position: relative;
+        opacity: 1;
+        transition: opacity 1s;
+
+        @for $i from 1 to 4 {
+            &-#{$i} {
+                transition-delay: 100ms*$i;
+            }
+        }
+     }
+
+}
+
+
+.burger {
+
+width: 50px;
+height: 31px;
+margin: auto;
+margin-top: 20px;
+display: flex;
+justify-content: center; 
+position: relative;
+padding: 5px;
+
+
+
+
+& .top {
+   @include mixins.Burger;
+   top: 7px;
+
+   
+}
+
+& .topOpenned {
+    transform: rotate(-45deg);
+    top: 50%;
+   }
+
+& .middle {
+    @include mixins.Burger;
+    top: 17px;
+}
+
+& .middleOpenned {
+    transform: translateX(-1000px);
+}
+& .bottom {
+    @include mixins.Burger;
+    top: 27px;
+}
+& .bottomOpenned {
+    transform: rotate(45deg);
+    top: 50%;
+   }
+
+
+   @media(min-width: 1000px) {
+    display: none;
+   }
+}
+
+.background {
+    background-color: white;
+    border: solid 2px variables.$color1;
+    border-radius: 10px;
+}
+
+.onglet-1 {
+    border-top: 1px solid variables.$color2;
+
+    @media (min-width: 1000px) {
+        border-top: solid 1px variables.$color1;
+    }
+}
+
+.onglet-3 {
+    border-bottom: 1px solid variables.$color2;
+
+    @media (min-width: 1000px) {
+        border-bottom: solid 1px variables.$color1;
+    }
+}

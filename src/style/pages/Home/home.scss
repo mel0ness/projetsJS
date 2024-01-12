@@ -1,0 +1,50 @@
+@use "../../utils/variables";
+@use "../../utils/animation";
+
+.line-1 {
+    position: relative;
+font-size: 2rem;
+text-align: left;
+padding-left: 10px;
+margin-top: 20px;
+}
+
+.line-2 {
+    position: relative;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.paragr {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    text-align: justify;
+    padding: 10px;
+}
+
+.band-1 {
+height: 100%;
+    width: 0;
+    background-color: variables.$color1;
+    animation: bar1 2.5s ease-in both;
+}
+.band-2 {
+height: 100%;
+    width: 0;
+    background-color: #FF6666;
+    animation: bar2 2.5s ease-in 0.4s both;
+}
+
+.band {
+    position: absolute;
+    z-index: 1;
+}
+
+.txt-1 {
+    animation: appear 1.25s ease-in;
+}
+.txt-2 {
+    animation: appear 1.65s ease-in;
+}

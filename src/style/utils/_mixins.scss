@@ -1,0 +1,11 @@
+@use "./variables";
+
+@mixin Burger {
+    display: block;
+    height: 5px;
+    width: 30px;
+    border-radius: 10px;
+    background-color: variables.$color1;
+    position: absolute;
+    transition: 600ms;
+}

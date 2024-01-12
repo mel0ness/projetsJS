@@ -1,0 +1,36 @@
+@keyframes bar1 {
+    0% {
+        width: 0;
+        margin-left: 0;
+    }
+    50%{
+        width: 60%;
+        margin-left: 0;
+    }
+    100%{width: 2px;
+    margin-left: 60%;}
+}
+@keyframes bar2 {
+    0% {
+        width: 0;
+        margin-left: 0;
+    }
+    50%{
+        width: 50%;
+        margin-left: 0;
+    }
+    100%{width: 2px;
+    margin-left: 50%;}
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
