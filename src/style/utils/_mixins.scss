@@ -9,3 +9,15 @@
     position: absolute;
     transition: 600ms;
 }
+
+@mixin Projet {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    border: solid variables.$color1 3px;
+border-radius: 20px;
+padding: 9px;
+background-color: #d3d3d3;
+}

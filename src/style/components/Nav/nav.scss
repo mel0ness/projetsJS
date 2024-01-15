@@ -9,7 +9,7 @@ flex-direction: column;
 justify-content: center;
 
 
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
     flex-direction: row;
    justify-content: end;
    gap: 30px;
@@ -39,7 +39,7 @@ a.header {
         color: variables.$color1;
     }
 
-    @media(min-width: 1000px) {
+    @media(min-width: 900px) {
         width: 30%;
         padding: 0;
         display: inline;
@@ -51,7 +51,7 @@ a.ongletActif {
     color: variables.$color1;
     
 
-    @media (min-width: 1000px){
+    @media (min-width: 900px){
     border-radius: 10px;
     padding: 5px;
     border: solid 2px variables.$color2;
@@ -73,7 +73,7 @@ a.ongletActif {
         width: 0;
         height: 0;
 
-        @media (min-width: 1000px) {
+        @media (min-width: 900px) {
            opacity: 1;
            position: relative;
            width: auto;
@@ -82,7 +82,7 @@ a.ongletActif {
 
     }
 
-    @media (min-width: 1000px) {
+    @media (min-width: 900px) {
         width: auto;
         height: auto;
     }
@@ -140,7 +140,7 @@ padding: 5px;
 }
 
 & .middleOpenned {
-    transform: translateX(-1000px);
+    transform: translateX(-900px);
 }
 & .bottom {
     @include mixins.Burger;
@@ -152,7 +152,7 @@ padding: 5px;
    }
 
 
-   @media(min-width: 1000px) {
+   @media(min-width: 900px) {
     display: none;
    }
 }
@@ -166,7 +166,7 @@ padding: 5px;
 .onglet-1 {
     border-top: 1px solid variables.$color2;
 
-    @media (min-width: 1000px) {
+    @media (min-width: 900px) {
         border-top: solid 1px variables.$color1;
     }
 }
@@ -174,7 +174,7 @@ padding: 5px;
 .onglet-3 {
     border-bottom: 1px solid variables.$color2;
 
-    @media (min-width: 1000px) {
+    @media (min-width: 900px) {
         border-bottom: solid 1px variables.$color1;
     }
 }

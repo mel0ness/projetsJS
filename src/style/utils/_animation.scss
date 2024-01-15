@@ -1,4 +1,4 @@
-@keyframes bar1 {
+@keyframes bar1-mobile {
     0% {
         width: 0;
         margin-left: 0;
@@ -10,7 +10,32 @@
     100%{width: 2px;
     margin-left: 60%;}
 }
-@keyframes bar2 {
+
+@keyframes bar1-400 {
+    0% {
+        width: 0;
+        margin-left: 0;
+    }
+    50%{
+        width: 220px;
+        margin-left: 0;
+    }
+    100%{width: 2px;
+    margin-left: 220px;}
+}
+@keyframes bar1-1150 {
+    0% {
+        width: 0;
+        margin-left: 0;
+    }
+    50%{
+        width: 400px;
+        margin-left: 0;
+    }
+    100%{width: 2px;
+    margin-left: 400px;}
+}
+@keyframes bar2-mobile {
     0% {
         width: 0;
         margin-left: 0;
@@ -20,8 +45,45 @@
         margin-left: 0;
     }
     100%{width: 2px;
-    margin-left: 50%;}
+    margin-left: 50%;} 
 }
+@keyframes bar2-400 {
+    0% {
+        width: 0;
+        margin-left: 0;
+    }
+    50%{
+        width: 180px;
+        margin-left: 0;
+    }
+    100%{width: 2px;
+    margin-left: 180px;} 
+}
+@keyframes bar2-1150 {
+    0% {
+        width: 0;
+        margin-left: 0;
+    }
+    50%{
+        width: 340px;
+        margin-left: 0;
+    }
+    100%{width: 2px;
+    margin-left: 340px;} 
+}
+@keyframes bar3 {
+    0% {
+        width: 0;
+        margin-left: 0;
+    }
+    50%{
+        width: 100%;
+        margin-left: 0;
+    }
+    100%{width: 0;
+    margin-left: 100%;} 
+} 
+
 
 @keyframes appear {
     0%{
@@ -33,4 +95,9 @@
     100% {
         opacity: 1;
     }
+}
+
+@keyframes ou {
+    from {opacity: 0}
+    to{opacity: 1}
 }

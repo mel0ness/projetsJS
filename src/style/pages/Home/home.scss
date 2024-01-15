@@ -7,6 +7,9 @@ font-size: 2rem;
 text-align: left;
 padding-left: 10px;
 margin-top: 20px;
+@media (min-width: 1150px) {
+    font-size: 4rem;
+        }
 }
 
 .line-2 {
@@ -15,6 +18,10 @@ margin-top: 20px;
     font-size: 1.5rem;
     text-align: left;
     padding-left: 10px;
+    @media (min-width: 1150px) {
+font-size: 3rem;
+margin-bottom: 30px;
+    }
 }
 
 .paragr {
@@ -22,25 +29,59 @@ margin-top: 20px;
     font-size: 1.2rem;
     text-align: justify;
     padding: 10px;
+
+    @media (min-width: 700px) {
+        font-size: 1.4rem;
+        width: 65%;
+        margin: auto;
+        margin-top: 20px;
+        border: solid 5px variables.$color1;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        background-color: #d3d3d3;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 28px 56px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+    }
+    @media (min-width: 1150px) {
+        font-size: 1.8rem;
+        width: 75%;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
 }
 
 .band-1 {
 height: 100%;
     width: 0;
     background-color: variables.$color1;
-    animation: bar1 2.5s ease-in both;
+    animation: bar1-mobile 2.5s ease-in both;
+
+    @media (min-width: 400px) {
+        animation: bar1-400 2.5s ease-in both;
+    }
+    @media (min-width: 1150px) {
+        animation: bar1-1150 2.5s ease-in both;
+    }
 }
 .band-2 {
 height: 100%;
     width: 0;
     background-color: #FF6666;
-    animation: bar2 2.5s ease-in 0.4s both;
+    animation: bar2-mobile 2.5s ease-in 0.4s both;
+
+    @media (min-width: 400px) {
+        animation: bar2-400 2.5s ease-in both;
+    }
+    @media (min-width: 1150px) {
+        animation: bar2-1150 2.5s ease-in both;
+    }
 }
 
 .band {
     position: absolute;
     z-index: 1;
-}
+} 
 
 .txt-1 {
     animation: appear 1.25s ease-in;

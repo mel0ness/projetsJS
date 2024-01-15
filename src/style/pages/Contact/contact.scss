@@ -1,0 +1,77 @@
+@use "../../utils/variables";
+@use "../../utils/animation";
+
+
+.contactTitle {
+    font-weight: 700;
+    text-decoration: underline;
+    color: variables.$color1;
+    @media (min-width: 700px) {
+        font-size: 1.5rem;
+    }
+    @media (min-width: 1150px) {
+        font-size: 2rem;
+    }
+}
+
+.flexyContact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media (min-width: 1150px) {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+ 
+.flexyContent {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @media (min-width: 700px) {
+        font-size: 1.2rem;
+    }
+    @media (min-width: 1150px) {
+        font-size: 1.8rem;
+    }
+}
+
+.band-3 {
+    height: 100%;
+        width: 0;
+        background-color: variables.$color1;
+        animation: bar3 2.5s ease-in both;
+    }
+.band-4 {
+    height: 100%;
+        width: 0;
+        background-color: #FF6666;
+        animation: bar3 2.5s ease-in 0.4s both;
+    }
+
+    .appearContact1 {
+        margin: auto;
+        animation: appear 1.25s ease-in both;
+        width: 80%;
+    }
+    .appearContact2 {
+        margin: auto;
+        width: 80%;
+        animation: appear 1.25s ease-in 0.4s both;
+    }
+
+    .relative {
+        position: relative;
+    }
+
+    .contactLink {
+        font-weight: 700;
+        color: variables.$color1;
+        cursor: pointer;
+    }
+
+    .ou {
+        animation: ou 1.25s ease-in 1.25s both;
+        text-decoration: underline;
+        font-weight: 700;
+    }

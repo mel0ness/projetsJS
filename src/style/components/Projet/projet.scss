@@ -1,0 +1,88 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+
+.projetComponentClosed{
+    @include mixins.Projet;
+    flex-direction: row;
+    max-height: 41px;
+
+}
+.projetComponentOpenned{
+@include mixins.Projet;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+    max-height: 800px;
+}
+
+.height {
+    transition: max-height 2s ease-in;
+}
+
+
+.line1Openned {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+
+}
+
+.projetName {
+    font-weight: 700;
+}
+
+.closed, .openned {
+display: flex;
+align-items: center;
+
+}
+
+.closed img {
+    width: 12px;
+    height: 24px;
+}
+.openned img {
+    width: 24px;
+    height: 24px;
+}
+
+.logoProjet {
+    width: 40px;
+    height: 40px;
+}
+
+.flexLinkOpenned {
+    opacity:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    transition: opacity 1s 1s;
+}
+.flexLinkClosed {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    transition: opacity 0.1s;
+}
+
+.closedIMG {
+transition: 1s;
+}
+
+.opennedIMG {
+    transform: rotate(90deg);
+    transition: 1s;
+}
+
+.descriptionOpenned {
+    opacity: 1;
+    transition: opacity 1s 1s;
+}
+.descriptionClosed {
+    opacity: 0;
+    transition: opacity 0.1s;
+}
