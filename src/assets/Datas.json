@@ -1,0 +1,28 @@
+[
+    
+    {
+        "id": 1,
+        "nom": "Calculateur d'IMC",
+        "adresse": "/projets/1",
+        "GithubCode": "https://github.com/mel0ness/1-IMC",
+        "GithubPage": "https://mel0ness.github.io/1-IMC/",
+        "description" : "Mise en place d'un simple calculateur d'IMC avec des résultats dynamiques."
+    },
+    {
+        "id": 2,
+        "nom": "Quizz",
+        "adresse": "/projets/2",
+        "GithubCode": "https://github.com/mel0ness/2-Quizz",
+        "GithubPage": "https://mel0ness.github.io/2-Quizz/",
+        "description" : "Création d'un quizz avec calcul de la note et de l'appréciation. Code prévu pour accueillir autant de questions que voulues"
+    },
+    {
+        "id": 3,
+        "nom": "Recherche Wiki",
+        "adresse": "/projets/3",
+        "GithubCode": "https://github.com/mel0ness/3-WIKIAPP",
+        "GithubPage": "https://mel0ness.github.io/3-WIKIAPP/",
+        "description" : "Utilisation de l'API de recherche de wikipédia pour afficher les résultat d'une recherche spécifique."
+    }
+]
+
