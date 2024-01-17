@@ -34,5 +34,33 @@
         "rep1": "1,365 Million",
         "rep2": "21 Millions",
         "rep3": "4,9 Millions"
+    },
+    {
+        "id": 6,
+        "title": "Quand suis-je né ?",
+        "rep1": "13 Novembre 1987",
+        "rep2": "13 Décembre 1987",
+        "rep3": "13 Mai 1986"
+    },
+    {
+        "id": 7,
+        "title": "Quel est mon plat préféré ?",
+        "rep1": "Les brocolis",
+        "rep2": "Le sorbet à la fraise",
+        "rep3": "La pizza 4 fromages"
+    },
+    {
+        "id": 8,
+        "title": "Quel est le prénom de mon chat ?",
+        "rep1": "Ploum Ploum",
+        "rep2": "Rouquemoutte",
+        "rep3": "Steffie"
+    },
+    {
+        "id": 9,
+        "title": "Pensez-vous avoir réussi ce test ?",
+        "rep1": "Oui",
+        "rep2": "Non",
+        "rep3": "Aucune idée"
     }
 ]
