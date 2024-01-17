@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import "../../style/pages/IMC/imc.scss"
 import { useState, useEffect} from "react";
 

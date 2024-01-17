@@ -1,7 +1,11 @@
 .P1-body {
+  min-height: 70vh;
   font-family: Lato, Helvetica, sans-serif;
   background: linear-gradient(to right, #36d1dc, #5b86e5);
   padding: clamp(20px, 5vw, 50px) 10px 10px;
+  @media(min-width: 1600px) {
+    min-height: unset;
+  }
 }
 
 .P1-Global {
@@ -65,6 +69,8 @@
   align-items: start;
   justify-content: space-between;
   margin: 0;
+
+
 
 }
 
