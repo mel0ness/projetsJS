@@ -2,13 +2,48 @@ import { Helmet } from "react-helmet-async";
 import "../../style/pages/Quizz/quizz.scss"
 import Datas from "../../assets/Question.json"
 import QuestionP2 from "../../components/QuestionP2";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Quizz = () => {
 
+    const firstRenderer = useRef(false)
 
-  let allResponses = [];
+    let allResponses = [];
   let note = 0;
+  let intermediateResponses= [];
+const [responses, updateresponsesGood] = useState([])
+
+
+const StockResponses = (Datas) => {
+    for(let i = 0; i < Datas.length; i++) {
+        allResponses.push("a")
+    }
+    }
+    
+    const GetResponses = (Datas) => {
+        for(let i = 0; i < Datas.length; i++) {
+            intermediateResponses.push(Datas[i].correct)
+        }
+    }
+
+
+
+useEffect(() => {
+
+   
+        if(firstRenderer.current) return;
+
+    firstRenderer.current = true;    
+    StockResponses(Datas);
+    GetResponses(Datas);
+    updateresponsesGood(intermediateResponses)
+    updateResponses(allResponses)
+
+    
+}
+    , [])
+
+  
 
   const Submit = (e) => {
     e.preventDefault();
@@ -88,14 +123,16 @@ getChecked(all)
 updateResponses(allResponses)
   }
 
-  const [Responses, updateResponses] = useState(["a", "a", "a", "a", "a", "a", "a", "a" , "a"])
+  const [Responses, updateResponses] = useState([])
   const [Consignes, updateConsignes] = useState("")
   
 
 
-  const responses = ["c", "a", "b", "a", "c", "a", "c", "b" , "a"];
+
 const emojis = ["👎", "😭" , "👀", "✨", "✔️" ];
 const comment = ["Catastrophique!", "Oula ce n'est pas bon", "Moyen", "Presque!", "Vous êtes excellent!"];
+
+
 
     return (
 <div className="P2-body">
