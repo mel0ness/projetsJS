@@ -5,6 +5,7 @@ import Git from "../../assets/gitColored.svg"
 import Go from "../../assets/go.svg"
 import JS from "../../assets/js.svg" 
 import { Link } from "react-router-dom"
+import ScrollTop from "../../features/scrollTop"
 
 const Projet = (Props) => {
 
@@ -17,9 +18,9 @@ const [openned, closed] = useState(false);
         <div className="openned" onClick={() => closed(false)}><img src={Closed} alt="closed" className="opennedIMG" /></div></div>
         <div>
         <div className="descriptionOpenned">{Props.description}</div></div>
-        <Link to={Props.git1} className="flexLinkOpenned"><img src={Git} alt="Link to git code" className="logoProjet" /><div>Lien vers le code GitHub</div></Link>
-        <Link to={Props.git2} className="flexLinkOpenned"><img src={JS} alt="Link to vanilla js" className="logoProjet" /><div>Lien vers la page GitHub</div></Link>
-        <Link to={Props.adress} className="flexLinkOpenned"><img src={Go} alt="Go to project" className="logoProjet" /><div>Lien vers le projet réalisé</div></Link>
+        <Link to={Props.git1} className="flexLinkOpenned" onClick={() => ScrollTop()}><img src={Git} alt="Link to git code" className="logoProjet" /><div>Lien vers le code GitHub</div></Link>
+        <Link to={Props.git2} className="flexLinkOpenned" onClick={() => ScrollTop()}><img src={JS} alt="Link to vanilla js" className="logoProjet" /><div>Lien vers la page GitHub</div></Link>
+        <Link to={Props.adress} className="flexLinkOpenned" onClick={() => ScrollTop()}><img src={Go} alt="Go to project" className="logoProjet" /><div>Lien vers le projet réalisé</div></Link>
              </div> 
              :
 
