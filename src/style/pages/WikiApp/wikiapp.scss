@@ -1,0 +1,90 @@
+@use "../../utils/animation";
+
+.P3-body {
+    min-height: 100vh;
+    background: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: clamp(20px, 5vw, 50px) 20px 20px;
+  }
+  
+  .P3-logo {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .P3-imgLogo {
+    width: 15%;
+    min-width: 100px;
+  }
+  
+  .P3-title {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 24px;
+  }
+  
+  .P3-boldy {
+    font-weight: bold;
+  }
+  
+  .P3-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .P3-input {
+    width: 40%;
+    min-width: 200px;
+    max-width: 450px;
+    padding: 10px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    @media(min-width: 1000px) {
+      font-size: 24px;
+    }
+  }
+  
+  .P3-results {
+    margin-top: 50px;
+  }
+  
+  
+  
+  .P3-error {
+    font-size: 22px;
+    width: 80%;
+    font-weight: 600;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .P3-loader {
+    margin: auto;
+    margin-top: 40px;
+    width: 60%;
+    gap : 10px;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .P3-dot {
+    width : 10px;
+    height: 10px;
+    background-color:black;
+    border-radius: 100%;
+    animation : bump 0.5s ease-in infinite;
+  }
+  
+
+  
+  .P3-dot2 {
+    animation-delay: 0.1s;
+  }
+  
+  .P3-dot3 {
+    animation-delay: 0.2s;
+  }
