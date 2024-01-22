@@ -28,7 +28,7 @@ const WikiApp = () => {
         try {
     const response = await fetch(`https://fr.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${value}`);
     const Results = await response.json();
-    updateDatas(Results.query.search);
+    CheckResults(Results);
     updateLoader(false);
         }
         catch (error) {
@@ -57,6 +57,15 @@ const WikiApp = () => {
         updateInputLoad(e)
     }
 
+    const CheckResults = (e) => {
+        if(e.query.search.length === 0) {
+            updateError(true)
+            updateErrorContent(`Oups! Il n'y a pas de resultats pour cette recherche. Peut-être devriez vous essayer : ${e.query.searchinfo.suggestion}`)
+        }
+        else {
+            updateDatas(e.query.search);
+        }
+    }
     return (
 <div className="P3-body">
     <Helmet>
