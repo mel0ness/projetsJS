@@ -3,10 +3,14 @@ import "../../style/components/Footer/footer.scss"
 import Mail from "../../assets/mail.svg"
 import gitHub from "../../assets/git.svg"
 import Copy from "../../assets/copyright.svg"
+import { useSelector } from "react-redux";
+import {currentTheme} from "../../features/selector"
 
 const Footer = () => {
+
+    const colors = useSelector(currentTheme)
     return (
-        <div className="flexRowBetween">
+        <div className={"flexRowBetween "+colors}>
 
 <div className="SVGcontainer"><Link to="#" onClick={(e) => {
                 window.location.href = "mailto:bastien.baryla@gmail.com";

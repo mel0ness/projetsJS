@@ -1,6 +1,15 @@
 @use "../../utils/variables";
 @import url('https://fonts.googleapis.com/css2?family=Lemon&family=Open+Sans:wght@300&family=Poppins:ital,wght@0,100;0,200;0,900;1,400;1,600;1,700;1,900&display=swap');
 
+.header {
+    position: relative;
+
+    &.Dark {
+        background-color: variables.$color1;
+        border-bottom: 2px solid #f5f5f5;
+    }
+}
+
 .title {
     display: block;
     font-family: 'Lemon', serif;
@@ -12,4 +21,10 @@
     border: solid variables.$color1 5px;
     border-radius: 15px;
     padding: 10px;
+
+    &.Dark {
+       background-color: variables.$color1;
+       color: #f5f5f5;
+       border-color: #f5f5f5;
+    }
 }

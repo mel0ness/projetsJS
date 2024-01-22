@@ -1,8 +1,12 @@
 import Navlink from "../Navlink";
 import "../../style/components/Nav/nav.scss"
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import {currentTheme} from "../../features/selector"
 
 const Nav = () => {
+
+    const colors = useSelector(currentTheme)
 const Close = () => {
     updateBurgerOpenned(false)
 }
@@ -10,9 +14,9 @@ const Close = () => {
  const [BurgerOpenned, updateBurgerOpenned] = useState(false);   
     return (<div>
 
-        {BurgerOpenned?  <div className="burger" onClick={() => updateBurgerOpenned(false)}><span className="top topOpenned"></span>
-        <span className="middle middleOpenned"></span>
-        <span className="bottom bottomOpenned"></span>  </div> :    <div className="burger  background" onClick={() => updateBurgerOpenned(true)}><span className="top"></span>
+        {BurgerOpenned?  <div className="burger" onClick={() => updateBurgerOpenned(false)}><span className={"top topOpenned "+colors}></span>
+        <span className={"middle middleOpenned "+colors}></span>
+        <span className={"bottom bottomOpenned "+colors}></span>  </div> :    <div className="burger  background" onClick={() => updateBurgerOpenned(true)}><span className="top"></span>
         <span className="middle"></span>
         <span className="bottom"></span></div>  }
          
