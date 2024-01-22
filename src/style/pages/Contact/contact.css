@@ -1,0 +1,213 @@
+@keyframes bar1-mobile {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 60%;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 60%;
+  }
+}
+@keyframes bar1-400 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 220px;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 220px;
+  }
+}
+@keyframes bar1-1150 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 400px;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 400px;
+  }
+}
+@keyframes bar2-mobile {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 50%;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 50%;
+  }
+}
+@keyframes bar2-400 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 180px;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 180px;
+  }
+}
+@keyframes bar2-1150 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 340px;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 340px;
+  }
+}
+@keyframes bar3 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 100%;
+    margin-left: 0;
+  }
+  100% {
+    width: 0;
+    margin-left: 100%;
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ou {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.contactTitle {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #01476B;
+}
+@media (min-width: 700px) {
+  .contactTitle {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1150px) {
+  .contactTitle {
+    font-size: 2rem;
+  }
+}
+
+.flexyContact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (min-width: 1150px) {
+  .flexyContact {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+.flexyContent {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media (min-width: 700px) {
+  .flexyContent {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1150px) {
+  .flexyContent {
+    font-size: 1.8rem;
+  }
+}
+
+.band-3 {
+  height: 100%;
+  width: 0;
+  background-color: #01476B;
+  animation: bar3 2.5s ease-in both;
+}
+
+.band-4 {
+  height: 100%;
+  width: 0;
+  background-color: #FF6666;
+  animation: bar3 2.5s ease-in 0.4s both;
+}
+
+.appearContact1 {
+  margin: auto;
+  animation: appear 1.25s ease-in both;
+  width: 80%;
+}
+
+.appearContact2 {
+  margin: auto;
+  width: 80%;
+  animation: appear 1.25s ease-in 0.4s both;
+}
+
+.relative {
+  position: relative;
+}
+
+.contactLink {
+  font-weight: 700;
+  color: #01476B;
+  cursor: pointer;
+}
+
+.ou {
+  animation: ou 1.25s ease-in 1.25s both;
+  text-decoration: underline;
+  font-weight: 700;
+}/*# sourceMappingURL=contact.css.map */

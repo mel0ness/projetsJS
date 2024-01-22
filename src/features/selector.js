@@ -1,0 +1,1 @@
+export const currentTheme = (state) => state.theme.ID

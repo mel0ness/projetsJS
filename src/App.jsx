@@ -9,12 +9,17 @@ import './style/utils/global.scss'
 import Imc from './pages/IMC';
 import Quizz from './pages/Quizz';
 import WikiApp from './pages/WikiApp';
-import Datas from "./assets/Datas.json"
+import Datas from "./assets/Datas.json";
+import { Provider } from "react-redux";
+import store from './features/store';
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
 
 function App() {
-
+  let persistore = persistStore(store);
   return (
-
+<Provider store={store}>
+<PersistGate persistor={persistore}>
     <Router>
 <Header/>
 <Routes>
@@ -27,7 +32,7 @@ function App() {
 <Route path="*" element={<Error/>} />
 </Routes>
 <Footer/>
-    </Router>
+    </Router></PersistGate></Provider>
    
   )
 }

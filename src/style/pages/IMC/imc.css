@@ -1,0 +1,128 @@
+.P1-body {
+  min-height: 70vh;
+  font-family: Lato, Helvetica, sans-serif;
+  background: linear-gradient(to right, #36d1dc, #5b86e5);
+  padding: clamp(20px, 5vw, 50px) 10px 10px;
+}
+@media (min-width: 1600px) {
+  .P1-body {
+    min-height: unset;
+  }
+}
+
+.P1-Global {
+  width: 40%;
+  background-color: #f1f1f1;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border-bottom: 1px solid #c0c0c0;
+  border-left: 1px solid #8d8d8d;
+  border-right: 1px solid #488ccc;
+  box-shadow: 0 1px #3c7daf;
+}
+@media (max-width: 1125px) {
+  .P1-Global {
+    width: 80%;
+  }
+}
+
+.P1-h1 {
+  font-weight: 400;
+  font-family: Raleway;
+}
+
+.P1-strong {
+  font-weight: 700;
+}
+
+.P1-form {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+@media (max-width: 360px) {
+  .P1-form {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.P1-fieldset {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  gap: 10px;
+}
+@media (max-width: 600px) {
+  .P1-fieldset {
+    flex-direction: column;
+  }
+}
+
+.P1-input {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  align-items: start;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.P1-black {
+  color: black;
+}
+
+.P1-input2 {
+  width: 95%;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 5px 5px #b1b1b1;
+}
+@media (max-width: 600px) {
+  .P1-input2 {
+    align-items: center;
+  }
+}
+
+.P1-label {
+  font-size: 12px;
+}
+
+.P1-button {
+  margin-top: 50px;
+  background-color: #fabe33;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 700;
+}
+
+.P1-result {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 36px;
+}
+
+.P1-comment {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-family: Raleway;
+}
+
+.P1-error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}/*# sourceMappingURL=imc.css.map */

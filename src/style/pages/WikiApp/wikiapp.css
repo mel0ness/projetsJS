@@ -1,0 +1,213 @@
+@keyframes bar1-mobile {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 60%;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 60%;
+  }
+}
+@keyframes bar1-400 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 220px;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 220px;
+  }
+}
+@keyframes bar1-1150 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 400px;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 400px;
+  }
+}
+@keyframes bar2-mobile {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 50%;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 50%;
+  }
+}
+@keyframes bar2-400 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 180px;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 180px;
+  }
+}
+@keyframes bar2-1150 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 340px;
+    margin-left: 0;
+  }
+  100% {
+    width: 2px;
+    margin-left: 340px;
+  }
+}
+@keyframes bar3 {
+  0% {
+    width: 0;
+    margin-left: 0;
+  }
+  50% {
+    width: 100%;
+    margin-left: 0;
+  }
+  100% {
+    width: 0;
+    margin-left: 100%;
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ou {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.P3-body {
+  min-height: 100vh;
+  background: #f1f1f1;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: clamp(20px, 5vw, 50px) 20px 20px;
+}
+
+.P3-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.P3-imgLogo {
+  width: 15%;
+  min-width: 100px;
+}
+
+.P3-title {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.P3-boldy {
+  font-weight: bold;
+}
+
+.P3-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.P3-input {
+  width: 40%;
+  min-width: 200px;
+  max-width: 450px;
+  padding: 10px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+@media (min-width: 1000px) {
+  .P3-input {
+    font-size: 24px;
+  }
+}
+
+.P3-results {
+  margin-top: 50px;
+}
+
+.P3-error {
+  font-size: 22px;
+  width: 80%;
+  font-weight: 600;
+  margin: auto;
+  text-align: center;
+}
+
+.P3-loader {
+  margin: auto;
+  margin-top: 40px;
+  width: 60%;
+  gap: 10px;
+  justify-content: center;
+  display: flex;
+}
+
+.P3-dot {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 100%;
+  animation: bump 0.5s ease-in infinite;
+}
+
+.P3-dot2 {
+  animation-delay: 0.1s;
+}
+
+.P3-dot3 {
+  animation-delay: 0.2s;
+}/*# sourceMappingURL=wikiapp.css.map */
