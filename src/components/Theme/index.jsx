@@ -1,4 +1,4 @@
-import "../../Style/Components/Theme/theme.scss"
+import "../../style/components/Theme/theme.scss"
 import Moon from "../../assets/moon.png"
 import Sun from "../../assets/sun.png"
 import { useDispatch, useSelector } from "react-redux"
