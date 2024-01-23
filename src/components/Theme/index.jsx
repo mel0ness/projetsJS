@@ -2,7 +2,7 @@ import "../../style/components/Theme/theme.scss"
 import Moon from "../../assets/moon.png"
 import Sun from "../../assets/sun.png"
 import { useDispatch, useSelector } from "react-redux"
-import {Dark, Light} from "../../Features/themeReducer"
+import {Dark, Light} from "../../features/themeReducer"
 import { currentTheme } from "../../features/selector"
 
 
