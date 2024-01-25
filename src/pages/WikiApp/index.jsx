@@ -57,10 +57,16 @@ const WikiApp = () => {
         updateInputLoad(e)
     }
 
+
+
     const CheckResults = (e) => {
-        if(e.query.search.length === 0) {
+        if(e.query.search.length === 0 && e.query.searchinfo.suggestion) {
             updateError(true)
             updateErrorContent(`Oups! Il n'y a pas de resultats pour cette recherche. Peut-être devriez vous essayer : ${e.query.searchinfo.suggestion}`)
+        }
+        else if (e.query.search.length === 0 && !e.query.searchinfo.suggestion) {
+            updateError(true)
+            updateErrorContent(`Oups! Il n'y a pas de resultats pour cette recherche.`)
         }
         else {
             updateDatas(e.query.search);
