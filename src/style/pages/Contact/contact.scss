@@ -24,6 +24,8 @@
     gap: 20px;
     padding-top: 20px;
         padding-bottom: 20px;
+        min-height: 70vh;
+        justify-content: center;
 
     &.Dark {
         background-color: variables.$color1;
@@ -33,6 +35,9 @@
     @media (min-width: 1150px) {
         padding-top: 50px;
         padding-bottom: 50px;
+    }
+    @media(min-width: 1600px) {
+        min-height: unset;
     }
 }
  
