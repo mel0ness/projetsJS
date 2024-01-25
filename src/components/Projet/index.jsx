@@ -6,13 +6,16 @@ import Go from "../../assets/go.svg"
 import JS from "../../assets/js.svg" 
 import { Link } from "react-router-dom"
 import ScrollTop from "../../features/scrollTop"
+import {currentTheme} from "../../features/selector"
+import { useSelector } from "react-redux"
 
 const Projet = (Props) => {
+    const colors = useSelector(currentTheme)
 
 const [openned, closed] = useState(false);    
     return(<div>
         {openned?         
-        <div className="projetComponentOpenned height">
+        <div className={"projetComponentOpenned height "+colors}>
             <div className="line1Openned">
         <div className="projetName">{Props.name}</div>
         <div className="openned" onClick={() => closed(false)}><img src={Closed} alt="closed" className="opennedIMG" /></div></div>
@@ -25,7 +28,7 @@ const [openned, closed] = useState(false);
              :
 
 
-             <div className="projetComponentClosed height">
+             <div className={"projetComponentClosed height "+colors}>
              <div className="line1Openned">
          <div className="projetName">{Props.name}</div>
          <div className="openned" onClick={() => closed(true)}><img src={Closed} alt="closed" className="closedIMG" /></div></div>

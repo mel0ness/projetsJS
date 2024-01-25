@@ -1,5 +1,12 @@
 @use "../../utils/variables";
 
+.projets {
+    &.Dark {
+        background-color: variables.$color1;
+        color: #f5f5f5;
+    }
+}
+
 
 .presProjets {
     width: 95%;

@@ -1,10 +1,14 @@
 import "../../style/pages/Projects/projects.scss"
 import Projet from "../../components/Projet"
+import {currentTheme} from "../../features/selector"
+import { useSelector } from "react-redux"
 
 
 const Projects = (Props) => {
+
+    const colors = useSelector(currentTheme)
     return (
-        <div>
+        <div className={"projets "+colors}>
 <div className="presProjets">Les projets sont directement intégrés en React-JS mais vous pouvez y trouver les liens pour le JS vanilla (Le code sur git comme le lien vers la page gitHub du projet)</div>
 
 {Props.Datas.map(({id, nom, adresse, GithubCode, GithubPage, description}) => 
