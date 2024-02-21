@@ -1,0 +1,212 @@
+@use "../../utils/variables";
+
+.P4-body {
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+    min-height: 100vh;
+    font-family: Lato, sans-serif;
+    background: linear-gradient(to right, #ffefba, #ffffff); 
+    padding: clamp(20px, 5vw, 50px) 20px 10px;
+}
+
+.P4-h1 {
+    font-weight: 300;
+    text-align: center;
+}
+
+.P4-boldTitle {
+    font-weight: 400;
+}
+
+.P4-img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.P4-form {
+    margin-top: 40px;
+}
+
+.P4-input {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 30%;
+
+    @media(max-width: 1200px) {
+            width: 40%;
+    }
+    
+    @media(max-width: 900px) {
+            width: 50%;
+    }
+    
+    @media(max-width: 500px) {
+            width: 70%;
+    }
+}
+
+
+.P4-inputs {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border: none;
+    padding: 7px;
+    padding-left: 10px;
+}
+
+.P4-inputs:focus {
+    outline: none;
+}
+
+.P4-label {
+    font-family: raleway, sans-serif;
+    font-weight: 700;
+font-size: 12px;
+text-align: left;
+}
+
+.P4-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.P4-button {
+    padding: 10px;
+    background-color: #006c67;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 70px;
+    cursor: pointer;
+}
+
+.P4-cookies {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 30vw;
+    margin: auto;
+    margin-top: 40px;
+
+    @media(max-width: 1200px) {
+            width: 50vw;
+    }
+    
+    @media(max-width: 900px) {
+            width: 60vw;
+    }
+    
+    @media(max-width: 500px) {
+            width: 90vw;
+    }
+}
+
+.P4-cookie {
+background-color: white;
+position: relative;
+width: 100%;
+height: 80px;
+border-radius: 5px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 5px;
+padding: 10px;
+overflow: hidden;
+}
+
+.P4-close {
+    background-color: #e0143c;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 4px;
+    color: white;
+    font-size: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.P4-title {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.P4-name, .P4-value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+
+}
+
+.P4-error, .P4-datasError {
+    color: red;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.P4-modale {
+    background: linear-gradient(to right, #ffefba, #ffffff); 
+    border: solid 2px #006c67;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.P4-modaleVisible {
+    width: 200px;
+    height: 170px;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.P4-modaleInvisible {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border: none;
+    padding: 0;
+    transition: all 0.5s;
+}
+
+.P4-modaleTitle {
+    font-weight: 700;
+}
+
+.P4-modaleButton {
+    width: 50px;
+    background-color: #006c67;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.P4-green {
+    color: green;
+}
+
+.P4-red {
+    color: red;
+}

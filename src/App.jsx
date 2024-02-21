@@ -9,6 +9,7 @@ import './style/utils/global.scss'
 import Imc from './pages/IMC';
 import Quizz from './pages/Quizz';
 import WikiApp from './pages/WikiApp';
+import Cookies from './pages/Cookies';
 import Datas from "./assets/Datas.json";
 import { Provider } from "react-redux";
 import store from './features/store';
@@ -29,6 +30,7 @@ function App() {
 <Route path="/projets/1" element={<Imc />} />
 <Route path="/projets/2" element={<Quizz />} />
 <Route path="/projets/3" element={<WikiApp />} />
+<Route path="/projets/4" element={<Cookies />} />
 <Route path="*" element={<Error/>} />
 </Routes>
 <Footer/>
