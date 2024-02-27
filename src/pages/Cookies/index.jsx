@@ -9,12 +9,13 @@ let AllCookies = [];
 let FinalCookies = [];
 const NameRef = useRef();
 const ValueRef = useRef();
+const Modale = useRef();
 
 const [errorDisplay, updateErrorDisplay] = useState(false);
 const [displayCookies, updateDisplayCookies] = useState(false);
 const [name, updateName] = useState(null);
 const [value, updateValue] = useState(null);
-const [cookies, setCookies] = useCookies();
+const [cookies, setCookies, removeCookie] = useCookies();
 const [FinalCookiesToDisplay, udpateFinalCookiesToDisplay] = useState([]);
 
 const createCookie = () => {
@@ -22,6 +23,7 @@ setCookies(name, value, {path: "/", maxAge: 86400})
 NameRef.current.value = "";
 ValueRef.current.value = "";
 FinalCookies = [];
+Toast("green", "ajouté", "Votre cookie a bien été ")
 }
 
 const readCookies = () => {
@@ -55,6 +57,49 @@ updateName(e);
 }
 }
 
+const Toast = (color, message, intro) => {
+  const toast = document.createElement("div");
+  toast.classList.add("P4-modale");
+  toast.innerHTML = `
+ <div>${intro}<span class="P4-${color}">${message}</span></div>
+`;
+window.document.body.appendChild(toast)
+
+setTimeout(() => {
+toast.remove()
+}, 3000)
+}
+
+const confirmDeleteCookie = (e) => {
+  Modale.current.classList.add("P4-modaleVisible")
+Modale.current.classList.remove("P4-modaleInvisible")
+setTimeout(() => {
+  Modale.current.innerHTML = `    <div class="P4-modaleTitle">Voulez-vous supprimer ce cookie?</div>
+  <div class="P4-modaleButton" id="Yes">Oui</div>
+  <div class="P4-modaleButton" id="No">Non</div>`
+  const Yes = document.getElementById("Yes")
+const No = document.getElementById("No")
+
+Yes.addEventListener("click", () => {
+  Modale.current.innerHTML = "";
+  Modale.current.classList.remove("P4-modaleVisible")
+  Modale.current.classList.add("P4-modaleInvisible")
+  deleteCookie(e);
+})
+No.addEventListener("click", () => {
+  Modale.current.innerHTML = "";
+  Modale.current.classList.remove("P4-modaleVisible")
+  Modale.current.classList.add("P4-modaleInvisible")
+})
+}, 500)
+}
+
+const deleteCookie = (e) => {
+ removeCookie(FinalCookiesToDisplay[e].name, {path: "/"})
+FinalCookiesToDisplay.splice(e, 1);
+display(FinalCookiesToDisplay);
+Toast("red", "supprimé", "Votre cookie a bien été ");
+}
 
 const changeValue = (e) => {
   if(e === "") {
@@ -97,7 +142,7 @@ updateValue(e);
   {displayCookies?   <div className="P4-cookies" id="displayDatas">
 {FinalCookiesToDisplay.map((cookie) =>
 <div key={cookie.id} className="P4-cookie" id={cookie.id}>
-<div className="P4-close" value={cookie.id}>X</div>
+<div className="P4-close" value={cookie.id} onClick={(e) => confirmDeleteCookie(e.target.attributes.value.value)}>X</div>
     <div className="P4-name"><span className="P4-title">Nom : </span>{cookie.name}</div>
     <div className="P4-value"><span className="P4-title">Valeur : </span>{cookie.value}</div>
 </div>
@@ -109,10 +154,9 @@ updateValue(e);
 </div> }
 
   {errorDisplay? <div className="P4-datasError" id="datasError"><div>Vous n&apos;avez pas de cookies à afficher!</div></div> : <div className="P4-datasError" id="datasError"></div> }
-  <div className="P4-modale P4-modaleInvisible" id="modale">
+  <div className="P4-modale P4-modaleInvisible" id="modale" ref={Modale}>
 
   </div>
-
         </div> </CookiesProvider>
     )
 }

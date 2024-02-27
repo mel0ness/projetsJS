@@ -23,6 +23,14 @@
         "GithubCode": "https://github.com/mel0ness/3-WIKIAPP",
         "GithubPage": "https://mel0ness.github.io/3-WIKIAPP/",
         "description" : "Utilisation de l'API de recherche de wikipédia pour afficher les résultat d'une recherche spécifique."
+    },
+    {
+        "id": 4,
+        "nom": "Cookies en JS",
+        "adresse": "/projets/4",
+        "GithubCode": "https://github.com/mel0ness/4-Cookies",
+        "GithubPage": "https://mel0ness.github.io/4-Cookies/",
+        "description" : "Création et suppression de cookies sur le site (Avec Toast et modale de confirmation). Intégration en React effectuée avec la librairie react-cookie."
     }
 ]
 
