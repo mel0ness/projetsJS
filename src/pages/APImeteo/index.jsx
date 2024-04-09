@@ -1,82 +1,183 @@
 import "../../style/pages/APImeteo/APImeteo.scss"
 import earth from "../../assets/earth.png"
+import { useRef, useState } from "react"
+import { useGeolocated } from "react-geolocated";
 
 const APImeteo = () => {
 
+  const { coords, isGeolocationAvailable, isGeolocationEnabled } =
+        useGeolocated({
+            positionOptions: {
+                enableHighAccuracy: true,
+            },
+            userDecisionTimeout: 5000,
+        });
+  const nextDay1 = new Date((new Date().getTime() + (24 * 60 * 60 * 1000))).toLocaleDateString("fr-FR", {weekday: "long"})
+  const nextDay2 = new Date((new Date().getTime() + (48 * 60 * 60 * 1000))).toLocaleDateString("fr-FR", {weekday: "long"})
+  const nextDay3 = new Date((new Date().getTime() + (72 * 60 * 60 * 1000))).toLocaleDateString("fr-FR", {weekday: "long"})
+  const currentHour = new Date().getHours();
+
+const [loader, updateLoader] = useState(true);  
+const [currentIMG, updateCurrentIMG] = useState("../jour/01d.svg");  
+const [currentLocation, updateCurrentLocation] = useState("Europe/Budapest");  
+const [currentTemp, updateCurrentTemp] = useState(18);  
+const [hours, updateHours] = useState(["-", "-", "-", "-", "-", "-", "-"])
+const [hoursTemp, updateHoursTemp] = useState(["/", "/", "/", "/", "/", "/", "/"])
+const [days, updateDays] = useState(["-", "-", "-"])
+const [APIKEY, updateAPIKEY] = useState("")
+const [hourActive, updateHourActive] = useState(true)
+const [infos, updateInfos] = useState("Veuillez renseigner votre APIKEY openWeather pour continuer :")
+const [modale, updateModale] = useState(true)
+const info = useRef(null);
+const API = useRef(null);
+
+const fetching = () => {
+  if(APIKEY === "") {
+info.current.classList.add("P5-error")
+  }
+  else {
+fetchCurrent(coords.latitude, coords.longitude)
+  }
+}
+
+async function fetchCurrent(e, f) {
+  try {
+const response = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${e}&lon=${f}&lang=fr&units=metric&appid=${APIKEY}`);
+const Results = await response.json();
+
+if(Results.cod) {
+switch (Results.cod) {
+  case 401:
+    updateInfos("Votre API n'est pas correcte, veuillez en entrer une valide")
+    updateAPIKEY("")
+    info.current.classList.add("P5-error")
+    API.current.value = ""
+    break;
+  case 429:
+    info.current.classList.add("P5-error")
+    updateInfos("Votre plan ne vous permet pas autant de requêtes, veuillez réessayer plus tard!")
+    API.current.value = "";
+    updateAPIKEY("")
+    break;
+}
+}
+else {
+updateModale(false);
+displayCurrent(Results.timezone, Results.current.temp, Results.current.weather[0].icon);
+displayByHour(Results.hourly);
+displayNamePrevisions();
+displayPrevisions(tomorrow, 1, Results.daily)
+displayPrevisions(dayPlusOne, 2, Results.daily)
+displayPrevisions(dayPlusTwo, 3, Results.daily)}
+  }
+  catch (error) {
+const Results = error;
+console.log(Results);
+  }
+}
+
+const displayCurrent = (e, f, g) => {
+
+  const temp = f.toFixed(0);
+  if(g.substring(2) === "d") {
+    updateCurrentIMG(`../jour/${g}.svg`)
+  }
+  else{
+    updateCurrentIMG(`../nuit/${g}.svg`)
+  }
+  updateCurrentLocation(e);
+  updateCurrentTemp(temp);
+
+
+setTimeout( function() {
+updateLoader(false)
+}
+, 1500)  
+
+}
 
 return (
     <div className="P5-body">
-
+{modale? 
     <div className="P5-modaleBack" id="modaleBack">
       <div className="P5-modaleAPI" id="modaleAPI">
-        <div className="P5-information" id="information">Veuillez renseigner votre APIKEY openWeather pour continuer :</div>
-        <input type="text" className="P5-API" id="APIKEY" />
-        <input type="button" className="P5-buttonAPI" value="Valider mon APIKEY" id="buttonAPI" />
+        {!isGeolocationAvailable? <div className="P5-information" id="information">Votre naigateur ne supporte pas la géolocalisation :/</div> : <div className="P5-hidden"></div>}
+{!isGeolocationEnabled? <div className="P5-information" id="information">Vous devez accepter la géolocalisation pour continuer!</div> : <div className="P5-information" id="information" ref={info}>{infos}</div> }
+        
+        <input type="text" className="P5-API" onChange={(e) => updateAPIKEY(e.target.value)} ref={API}/>
+        {!isGeolocationEnabled? <input type="button" className="P5-buttonAPI" value="Valider mon APIKEY" disabled /> : <input type="button" className="P5-buttonAPI" value="Valider mon APIKEY" id="buttonAPI" onClick={() => fetching() } />}
       </div>
     </div>
-  
+: <div></div>}
     <div className="P5-mainDisplay">
   
       <div className="P5-h1">Application <span className="P5-title">météo</span></div>
-      <div className="P5-loader" id="loader">
+      {loader?  <div className="P5-loader" id="loader">
         <img src={earth} alt="earth" className="P5-imgLoader" />
         <div className="P5-imgLoaderMove"></div>
       </div>
-      <img className="P5-img P5-hidden P5-current" alt="current" />
-      <div className="P5-temp P5-hidden P5-current">18°</div>
-      <div className="P5-localisation P5-hidden P5-current">Europe/Budapest</div>
+      :
+      <div>
+      <img className="P5-img P5-current" alt="current" src={currentIMG} />
+      <div className="P5-temp P5-current">{currentTemp}°</div>
+      <div className="P5-localisation P5-current">{currentLocation}</div></div>
+       }
+     
+    
     </div>
   
   
     <div className="P5-detailedDisplay">
       <div className="P5-selection">
-        <div className="P5-button P5-active" id="hour">Heures</div>
-        <div className="P5-button" id="future">Prévisions</div>
+        {hourActive? <div className="P5-button P5-active" id="hour">Heures</div> : <div className="P5-button" id="hour" onClick={() => updateHourActive(true)}>Heures</div>}
+       {hourActive? <div className="P5-button" id="future" onClick={() => updateHourActive(false)}>Prévisions</div> : <div className="P5-button P5-active" id="future">Prévisions</div>} 
       </div>
+      {hourActive? 
       <div className="P5-hours" id="hourByHour">
         <div className="P5-hour">
-          <div className="P5-time P5-time">-</div>
-          <div className="P5-timeTemp P5-hourPrev">/</div>
+          <div className="P5-time P5-time">{hours[0]}</div>
+          <div className="P5-timeTemp P5-hourPrev">{hoursTemp[0]}</div>
         </div>
         <div className="P5-hour">
-          <div className="P5-time P5-time">-</div>
-          <div className="P5-timeTemp P5-hourPrev">/</div>
+          <div className="P5-time P5-time">{hours[1]}</div>
+          <div className="P5-timeTemp P5-hourPrev">{hoursTemp[1]}</div>
         </div>
         <div className="P5-hour">
-          <div className="P5-time P5-time">-</div>
-          <div className="P5-timeTemp P5-hourPrev">/</div>
+          <div className="P5-time P5-time">{hours[2]}</div>
+          <div className="P5-timeTemp P5-hourPrev">{hoursTemp[2]}</div>
         </div>
         <div className="P5-hour">
-          <div className="P5-time P5-time">-</div>
-          <div className="P5-timeTemp P5-hourPrev">/</div>
+          <div className="P5-time P5-time">{hours[3]}</div>
+          <div className="P5-timeTemp P5-hourPrev">{hoursTemp[3]}</div>
         </div>
         <div className="P5-hour">
-          <div className="P5-time P5-time">-</div>
-          <div className="P5-timeTemp P5-hourPrev">/</div>
+          <div className="P5-time P5-time">{hours[4]}</div>
+          <div className="P5-timeTemp P5-hourPrev">{hoursTemp[4]}</div>
         </div>
         <div className="P5-hour">
-          <div className="P5-time P5-time">-</div>
-          <div className="P5-timeTemp P5-hourPrev">/</div>
+          <div className="P5-time P5-time">{hours[5]}</div>
+          <div className="P5-timeTemp P5-hourPrev">{hoursTemp[5]}</div>
         </div>
         <div className="P5-hour P5-lastHour">
-          <div className="P5-time P5-time">-</div>
-          <div className="P5-timeTemp P5-hourPrev">/</div>
+          <div className="P5-time P5-time">{hours[6]}</div>
+          <div className="P5-timeTemp P5-hourPrev">{hoursTemp[6]}</div>
         </div>
       </div>
-      <div className="P5-hours P5-hidden" id="dayByDay">
+      :
+      <div className="P5-hours" id="dayByDay">
         <div className="P5-days">
-          <div className="P5-day"></div>
-          <div className="P5-dayTemp" id="tomorrow"></div>
+          <div className="P5-day">{days[0]}</div>
+          <div className="P5-dayTemp"></div>
         </div>
         <div className="P5-days">
-          <div className="P5-day"></div>
-          <div className="P5-dayTemp" id="dayPlusOne"></div>
+          <div className="P5-day">{days[1]}</div>
+          <div className="P5-dayTemp"></div>
         </div>
         <div className="P5-days P5-lastday">
-          <div className="P5-day"></div>
-          <div className="P5-dayTemp" id="dayPlusTwo"></div>
+          <div className="P5-day">{days[2]}</div>
+          <div className="P5-dayTemp"></div>
         </div>
-      </div>
+      </div>}
   </div>
   </div>
 )    
