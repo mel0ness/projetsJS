@@ -1,0 +1,21 @@
+@use"../../utils/global.scss";
+
+.P5-dayTemp {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 0.9rem;
+    @media(min-width: 768px) {
+        font-size: 1.3rem;
+      }
+  }
+  
+  .P5-dayTempIMG {
+    width: 45px;
+    height: 45px;
+  
+    @media(min-width: 768px) {
+        width: 70px;
+        height: 70px;
+      }
+  }

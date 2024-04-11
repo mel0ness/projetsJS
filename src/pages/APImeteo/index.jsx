@@ -2,6 +2,7 @@ import "../../style/pages/APImeteo/APImeteo.scss"
 import earth from "../../assets/earth.png"
 import { useRef, useState } from "react"
 import { useGeolocated } from "react-geolocated";
+import DayPrev from "../../components/dayPrev";
 
 const APImeteo = () => {
 
@@ -21,13 +22,15 @@ const [loader, updateLoader] = useState(true);
 const [currentIMG, updateCurrentIMG] = useState("../jour/01d.svg");  
 const [currentLocation, updateCurrentLocation] = useState("Europe/Budapest");  
 const [currentTemp, updateCurrentTemp] = useState(18);  
-const [hours, updateHours] = useState(["-", "-", "-", "-", "-", "-", "-"])
-const [hoursTemp, updateHoursTemp] = useState(["/", "/", "/", "/", "/", "/", "/"])
-const [days, updateDays] = useState(["-", "-", "-"])
+const [hours] = useState(["-", "-", "-", "-", "-", "-", "-"])
+const [hoursTemp] = useState(["/", "/", "/", "/", "/", "/", "/"])
+const [days] = useState(["-", "-", "-"])
 const [APIKEY, updateAPIKEY] = useState("")
 const [hourActive, updateHourActive] = useState(true)
 const [infos, updateInfos] = useState("Veuillez renseigner votre APIKEY openWeather pour continuer :")
 const [modale, updateModale] = useState(true)
+const [resultsDaily, updateResultsDaily] = useState({}) 
+const [displayDayByDay, updateDisplayDayByDay] = useState(false);
 const info = useRef(null);
 const API = useRef(null);
 
@@ -66,9 +69,9 @@ updateModale(false);
 displayCurrent(Results.timezone, Results.current.temp, Results.current.weather[0].icon);
 displayByHour(Results.hourly);
 displayNamePrevisions();
-displayPrevisions(tomorrow, 1, Results.daily)
-displayPrevisions(dayPlusOne, 2, Results.daily)
-displayPrevisions(dayPlusTwo, 3, Results.daily)}
+updateResultsDaily(Results.daily);
+updateDisplayDayByDay(true);
+}
   }
   catch (error) {
 const Results = error;
@@ -95,6 +98,26 @@ updateLoader(false)
 , 1500)  
 
 }
+
+const displayByHour=(e) => {
+  for(let i=0; i<7; i++) {
+    const calcul = i*3 +3 + currentHour;
+    if(calcul >= 24) {
+      hours[i] = `${calcul - 24}h`
+      hoursTemp[i] = `${e[(i+1)*3].temp.toFixed()}°`
+    }
+    else {
+      hours[i] = `${calcul}h`
+      hoursTemp[i] = `${e[(i+1)*3].temp.toFixed()}°`
+    }
+  }
+  }
+
+  const displayNamePrevisions = () => {
+    days[0] = nextDay1.substring(0, 3)
+    days[1] = nextDay2.substring(0, 3)
+    days[2] = nextDay3.substring(0, 3)
+    }
 
 return (
     <div className="P5-body">
@@ -167,15 +190,15 @@ return (
       <div className="P5-hours" id="dayByDay">
         <div className="P5-days">
           <div className="P5-day">{days[0]}</div>
-          <div className="P5-dayTemp"></div>
+          <DayPrev resultsDaily={resultsDaily[1]} display={displayDayByDay} />
         </div>
         <div className="P5-days">
           <div className="P5-day">{days[1]}</div>
-          <div className="P5-dayTemp"></div>
+          <DayPrev resultsDaily={resultsDaily[2]} display={displayDayByDay} />
         </div>
         <div className="P5-days P5-lastday">
           <div className="P5-day">{days[2]}</div>
-          <div className="P5-dayTemp"></div>
+          <DayPrev resultsDaily={resultsDaily[3]} display={displayDayByDay} />
         </div>
       </div>}
   </div>
