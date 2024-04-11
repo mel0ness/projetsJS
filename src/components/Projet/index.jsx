@@ -46,9 +46,9 @@ const openning = () => {
          <div className="openned" onClick={() => openning()}><img src={Closed} alt="closed" className="closedIMG" /></div></div>
          <div>
          <div className="descriptionClosed"></div></div>
-         <Link className="flexLinkClosed"></Link>
-         <Link className="flexLinkClosed"></Link>
-         <Link className="flexLinkClosed"  ></Link>
+         <Link className="flexLinkClosed" aria-label="lien 1"></Link>
+         <Link className="flexLinkClosed" aria-label="lien 2"></Link>
+         <Link className="flexLinkClosed"  aria-label="lien 3"></Link>
               </div> }
                         </div>
     )
