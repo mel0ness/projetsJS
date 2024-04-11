@@ -14,7 +14,7 @@
         "adresse": "/projets/2",
         "GithubCode": "https://github.com/mel0ness/2-Quizz",
         "GithubPage": "https://mel0ness.github.io/2-Quizz/",
-        "description" : "Création d'un quizz avec calcul de la note et de l'appréciation. Code prévu pour accueillir autant de questions que voulues"
+        "description" : "Création d'un quizz avec calcul de la note et de l'appréciation. Code prévu pour accueillir autant de questions que voulues venant d'un fichier JSON."
     },
     {
         "id": 3,
@@ -31,6 +31,14 @@
         "GithubCode": "https://github.com/mel0ness/4-Cookies",
         "GithubPage": "https://mel0ness.github.io/4-Cookies/",
         "description" : "Création et suppression de cookies sur le site (Avec Toast et modale de confirmation). Intégration en React effectuée avec la librairie react-cookie."
+    },
+    {
+        "id": 5,
+        "nom": "Application météo",
+        "adresse": "/projets/5",
+        "GithubCode": "https://github.com/mel0ness/5-Meteo",
+        "GithubPage": "https://mel0ness.github.io/5-Meteo/",
+        "description" : "Création d'une application météo avec l'API OpenWeather pour la mise en place de prévisions par heure et sur les trois jours suivants. Intégration React effectué avec react-geolocated. Pour l'utilisation il est nécessaire d'avoir une APIKEY du site."
     }
 ]
 
