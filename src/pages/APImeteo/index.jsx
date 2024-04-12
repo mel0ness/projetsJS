@@ -1,5 +1,5 @@
 import "../../style/pages/APImeteo/APImeteo.scss"
-import earth from "../../assets/earth.png"
+import earth from "../../assets/earth.webp"
 import { useRef, useState } from "react"
 import { useGeolocated } from "react-geolocated";
 import DayPrev from "../../components/dayPrev";
