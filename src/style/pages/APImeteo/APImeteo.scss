@@ -28,6 +28,14 @@
   }
 }
 
+.P5-mainDisplay::before {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: url("./ressources/gradient.webp");
+  content: '';
+}
+
 .P5-detailedDisplay {
 
   background-color: white;
