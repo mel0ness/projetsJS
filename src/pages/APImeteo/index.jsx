@@ -125,9 +125,9 @@ return (
     <div className="P5-modaleBack" id="modaleBack">
       <div className="P5-modaleAPI" id="modaleAPI">
         {!isGeolocationAvailable? <div className="P5-information" id="information">Votre naigateur ne supporte pas la géolocalisation :/</div> : <div className="P5-hidden"></div>}
-{!isGeolocationEnabled? <div className="P5-information" id="information">Vous devez accepter la géolocalisation pour continuer!</div> : <div className="P5-information" id="information" ref={info}>{infos}</div> }
+{!isGeolocationEnabled? <div className="P5-information" id="information">Vous devez accepter la géolocalisation pour continuer!</div> : <label className="P5-information" id="information" ref={info} htmlFor="APIKEY">{infos}</label> }
         
-        <input type="text" className="P5-API" onChange={(e) => updateAPIKEY(e.target.value)} ref={API}/>
+        <input type="text" className="P5-API" onChange={(e) => updateAPIKEY(e.target.value)} ref={API} id="APIKEY"/>
         {!isGeolocationEnabled? <input type="button" className="P5-buttonAPI" value="Valider mon APIKEY" disabled /> : <input type="button" className="P5-buttonAPI" value="Valider mon APIKEY" id="buttonAPI" onClick={() => fetching() } />}
       </div>
     </div>
