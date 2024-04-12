@@ -1,6 +1,6 @@
 import "../../style/pages/Cookies/cookies.scss"
 import { Helmet } from "react-helmet-async";
-import Cookie from "../../assets/cookie.png"
+import Cookie from "../../assets/cookie.webp"
 import { CookiesProvider, useCookies } from "react-cookie";
 import { useState, useRef } from "react";
 
