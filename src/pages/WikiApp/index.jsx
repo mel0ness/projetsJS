@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import "../../style/pages/WikiApp/wikiapp.scss"
-import Logo from "../../assets/wiki-logo.png"
+import Logo from "../../assets/wiki-logo.webp"
 import { useState } from "react";
 import SiteResults from "../../components/siteResults";
 
