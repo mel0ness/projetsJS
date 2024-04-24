@@ -3,6 +3,7 @@ import earth from "../../assets/earth.webp"
 import { useRef, useState } from "react"
 import { useGeolocated } from "react-geolocated";
 import DayPrev from "../../components/dayPrev";
+import { Helmet } from "react-helmet-async";
 
 const APImeteo = () => {
 
@@ -121,6 +122,9 @@ const displayByHour=(e) => {
 
 return (
     <div className="P5-body">
+             <Helmet>
+            <title>API météo</title>
+            </Helmet>
 {modale? 
     <div className="P5-modaleBack" id="modaleBack">
       <div className="P5-modaleAPI" id="modaleAPI">
