@@ -39,6 +39,14 @@
         "GithubCode": "https://github.com/mel0ness/5-Meteo",
         "GithubPage": "https://mel0ness.github.io/5-Meteo/",
         "description" : "Création d'une application météo avec l'API OpenWeather pour la mise en place de prévisions par heure et sur les trois jours suivants. Intégration React effectué avec react-geolocated. Pour l'utilisation il est nécessaire d'avoir une APIKEY du site."
+    },
+    {
+        "id": 6,
+        "nom": "Générateur de linear-gradient",
+        "adresse": "/projets/6",
+        "GithubCode": "https://github.com/mel0ness/6-ColorGenerator",
+        "GithubPage": "https://mel0ness.github.io/6-ColorGenerator/",
+        "description" : "Création d'un générateur de linear-gradient avec la possibilité de changer les données (Couleurs ou orientation) de manière manuelle. Pour l'intégration React de ce projet j'ai utilisé la librairie styled-components qui me permet de passer des props directement dans le style de certains éléments et donc de mieux gérer leur affichage."
     }
 ]
 
