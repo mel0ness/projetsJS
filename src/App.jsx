@@ -12,6 +12,7 @@ import WikiApp from './pages/WikiApp';
 import Cookies from './pages/Cookies';
 import APImeteo from './pages/APImeteo';
 import GradientGenerator from './pages/gradientGenerator';
+import Pomodoro from './pages/Pomodoro';
 import Datas from "./assets/Datas.json";
 import { Provider } from "react-redux";
 import store from './features/store';
@@ -35,6 +36,7 @@ function App() {
 <Route path="/projets/4" element={<Cookies />} />
 <Route path="/projets/5" element={<APImeteo />} />
 <Route path="/projets/6" element={<GradientGenerator/>} />
+<Route path="/projets/7" element={<Pomodoro/>} />
 <Route path="*" element={<Error/>} />
 </Routes>
 <Footer/>

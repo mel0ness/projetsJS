@@ -1,0 +1,72 @@
+@use"../../utils/global.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+.P7-body {
+  min-height: 100vh;
+  background: linear-gradient(to right, #70e1f5, #ffd194);
+  font-family: Lato, sans-serif;
+  padding: clamp(20px, 5vw, 50px) 10px;
+  color: #161616;
+}
+
+.P7-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.P7-bold {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.P7-timers {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+
+
+.P7-actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  justify-content: center;
+}
+
+.P7-action {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.P7-play {
+  width: 20px;
+  height: 20px;
+}
+
+.P7-reset {
+  width: 20px;
+  height: 20px;
+}
+
+.P7-cycles {
+  margin-top: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.P7-active {
+  border: 5px solid red
+}
