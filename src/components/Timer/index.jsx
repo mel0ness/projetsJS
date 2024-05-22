@@ -1,51 +1,85 @@
-// import { useEffect} from "react";
+import { useEffect, useState} from "react";
+import styled, { keyframes } from "styled-components";
 import "../../style/components/Timer/timer.scss"
+
+const playing = keyframes`
+0% {
+  width : 0;
+  left: 30%;
+  right: unset;
+}
+40% {
+  width: 40%;
+  left: 30%;
+  right: unset;
+}
+60% {
+  width: 40%;
+  left: unset;
+  right: 30%;
+}
+100% {
+  width: 0;
+  right: 30%;
+  left: unset;
+}
+`
+
+const paused = keyframes`
+0% {
+ opacity: 1;
+}
+50% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+`
+
+const StyledTitle = styled.div`
+width: 0;
+height: 5px;
+border-radius: 5px;
+border-color: white;
+background-color: black;
+position: absolute;
+left: 30%;
+
+&.play {
+animation: ${playing} 2s infinite both;}
+
+&.paused {
+  width: 40%;
+  animation: ${paused} 1s infinite both;
+}
+
+&.stopped {
+  animation: unset;
+}
+`
 
 const Timer = (Props) => {
 
-// useEffect(() => {
-//     let timerFunction = setInterval(function()
-//     {play(Props.minutes,Props.updateMinutes, Props.seconds, Props.updateSeconds, Props.isRunning, Props.moment, Props.momentState, Props.momentStateFunction, timerFunction)}, 1000)
-// }
-//         , [Props.isRunning, Props.moment, Props.minutes, Props.updateMinutes, Props.seconds, Props.updateSeconds, Props.momentState, Props.momentStateFunction])
+  useEffect(() => {
+if(Props.moment === Props.momentState && Props.running === true) {
+updateStyle("play")
+}
+else if (Props.moment === Props.momentState && Props.running === false) {
+  updateStyle("paused")
+}
+else {
+  updateStyle("stopped")
+}
+  }, [Props])
 
-// const intervalBegin = () => {
-//     let timerFunction = setInterval(function()
-//     {play(Props.minutes,Props.updateMinutes, Props.seconds, Props.updateSeconds, Props.isRunning, Props.moment, Props.momentState, Props.momentStateFunction, timerFunction)}, 1000)
-// }
-
-// const play = (minutes, updateMinutes, seconds, updateSeconds, isRunning, moment, momentState, momentStateFunction, interval) => {
-//     if(!isRunning || moment !== momentState) {
-//         clearInterval(interval)
-//     }
-
-//    else if(minutes >= 0 && seconds ===0) {
-//         updateMinutes(minutes - 1);
-//         updateSeconds(59);
-//     }
-//     else if(minutes >= 0 && seconds > 0) {
-//         updateSeconds(seconds - 1);
-//     }
-//     else {
-//         if(momentState === "Travail"){
-//             updateMinutes(30)
-//             updateSeconds(0)
-//             momentStateFunction("Repos")
-//             clearInterval(interval)
-//         }
-//         else {
-//             updateMinutes(5)
-//             updateSeconds(0)
-//         momentStateFunction("Travail")
-//             clearInterval(interval)
-//         }
-       
-//     }
-// }        
+      
+  const [style, updateStyle] = useState("stopped")
 
     return(
         <div className="P7-timer">
       <div className="P7-timeTitle">{Props.moment}</div>
+      <StyledTitle className={style}></StyledTitle>
       <div className="P7-timeUnits"><span>{Props.minutes}</span>:{Props.seconds < 10? <span>0{Props.seconds}</span> : <span>{Props.seconds}</span>}</div>
     </div>
     )

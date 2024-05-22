@@ -47,6 +47,14 @@
         "GithubCode": "https://github.com/mel0ness/6-ColorGenerator",
         "GithubPage": "https://mel0ness.github.io/6-ColorGenerator/",
         "description" : "Création d'un générateur de linear-gradient avec la possibilité de changer les données (Couleurs ou orientation) de manière manuelle. Pour l'intégration React de ce projet j'ai utilisé la librairie styled-components qui me permet de passer des props directement dans le style de certains éléments et donc de mieux gérer leur affichage."
+    },
+    {
+        "id": 7,
+        "nom": "Timer Pomodoro",
+        "adresse": "/projets/7",
+        "GithubCode": "https://github.com/mel0ness/7-Pomodoro",
+        "GithubPage": "https://mel0ness.github.io/7-Pomodoro/",
+        "description" : "Création d'un timer Pomodoro avec les possibilités de mettre en pause ou de remettre à zéro. Il y a un décompte des cycles effectués et le timer passe automatiquement de la période de travail à la période de repos et inversement. Chaque changement de période est marquée par un son. Et chaque période en cours est mise en avant avec une animation (Une animation existe aussi pour marquer la période en pause)."
     }
 ]
 
