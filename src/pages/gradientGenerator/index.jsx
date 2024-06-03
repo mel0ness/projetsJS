@@ -36,7 +36,7 @@ const StyledModale = styled.div`
     position: absolute;
     display: flex;
     visibility: ${props => props.visibility};
-    top: 75%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: ${props => props.width};

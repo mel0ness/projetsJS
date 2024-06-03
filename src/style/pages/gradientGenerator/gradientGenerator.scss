@@ -1,6 +1,7 @@
 @use "../../utils/global.scss";
 
 .P6-mainDiv {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 300px;
